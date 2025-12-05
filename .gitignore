@@ -1,0 +1,73 @@
+# ============================
+#   VS / .NET BACKEND IGNORE
+# ============================
+
+# Build results
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userprefs
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Logs
+*.log
+
+# Publish output
+publish/
+app.publish/
+
+# Environment / secrets
+*.env
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+!appsettings.json
+
+
+# ============================
+#     ANGULAR FRONTEND IGNORE
+# ============================
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+out-tsc/
+
+# Angular cache
+.angular/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Environment files
+environment.ts
+environment.prod.ts
+
+# ============================
+#            GENERAL
+# ============================
+
+.DS_Store
+Thumbs.db
+
+.fake
