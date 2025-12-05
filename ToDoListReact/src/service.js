@@ -30,7 +30,7 @@ if (savedToken) {
 axios.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error("❌ Error from API:", error.response?.data || error.message);
+    console.error("❌ Error  API:", error.response?.data || error.message);
 
     // אם קיבלנו 401 (לא מורשה), מעבירים ללוגין
     if (error.response && error.response.status === 401) {
