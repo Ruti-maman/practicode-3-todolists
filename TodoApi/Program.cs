@@ -94,7 +94,7 @@ app.UseAuthorization();
 // -------------------------
 // Route בסיסי לבדיקה
 // -------------------------
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "API is running!");
 
 // -------------------------
 // CRUD Routes (Protected)
