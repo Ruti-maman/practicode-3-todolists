@@ -21,6 +21,16 @@ var jwtKey = Environment.GetEnvironmentVariable("Key");
 var jwtIssuer = Environment.GetEnvironmentVariable("Issuer");
 var jwtAudience = Environment.GetEnvironmentVariable("Audience");
 
+// בדיקה שהמשתנים לא ריקים
+if (string.IsNullOrEmpty(connectionString))
+    throw new InvalidOperationException("ToDoDB environment variable is not set!");
+if (string.IsNullOrEmpty(jwtKey))
+    throw new InvalidOperationException("Key environment variable is not set!");
+if (string.IsNullOrEmpty(jwtIssuer))
+    throw new InvalidOperationException("Issuer environment variable is not set!");
+if (string.IsNullOrEmpty(jwtAudience))
+    throw new InvalidOperationException("Audience environment variable is not set!");
+
 // -------------------------
 // הוספת DbContext לשירותים
 // -------------------------
