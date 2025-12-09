@@ -3,8 +3,7 @@ import axios from "axios";
 // ===================================
 // 1. Config Defaults - הגדרת baseURL
 // ===================================
-axios.defaults.baseURL =
-  process.env.REACT_APP_API_URL || "http://localhost:5005";
+axios.defaults.baseURL = "https://todolist-server-psgx.onrender.com";
 
 // ===================================
 // פונקציה לשמירת והחזרת token
