@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
+using DotNetEnv;
 
 namespace TodoApi;
+
 
 public partial class ToDoDbContext : DbContext
 {
@@ -20,10 +22,15 @@ public partial class ToDoDbContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
+
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
         {
+                if (File.Exists(".env"))
+                    Env.Load();
+
             var connString = Environment.GetEnvironmentVariable("ToDoDB");
             if (!string.IsNullOrEmpty(connString))
             {

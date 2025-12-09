@@ -8,7 +8,8 @@ using TodoApi;
 using DotNetEnv;
 
 // טעינת קובץ .env
-Env.Load();
+if (File.Exists(".env"))
+    Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
