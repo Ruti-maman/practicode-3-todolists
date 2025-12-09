@@ -56,7 +56,7 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 // -------------------------
 // הוספת Swagger
 // -------------------------
-builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 
 // -------------------------
@@ -64,14 +64,14 @@ builder.Services.AddSwaggerGen();
 // -------------------------
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
+    options.AddPolicy("AllowAllPolicy", policy =>
     {
         policy.AllowAnyOrigin()
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
 });
-
+builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 
 // -------------------------
@@ -83,7 +83,10 @@ app.UseSwaggerUI();
 // -------------------------
 // הפעלת CORS
 // -------------------------
-app.UseCors();
+app.UseCors("AllowAll");
+
+
+
 
 // -------------------------
 // Authentication & Authorization
