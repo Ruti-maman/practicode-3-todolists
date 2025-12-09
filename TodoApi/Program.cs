@@ -68,7 +68,8 @@ builder.Services.AddCors(options =>
     {
         policy.AllowAnyOrigin()
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .WithExposedHeaders("*");
     });
 });
 builder.Services.AddEndpointsApiExplorer();
