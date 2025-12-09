@@ -66,9 +66,14 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins(
+            "https://todolist-client-widkc.onrender.com",
+            "http://localhost:3000",
+            "http://localhost:5005"
+        )
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .AllowCredentials();
     });
 });
 
@@ -154,7 +159,7 @@ app.MapDelete("/tasks/{id}", async (int id, ToDoDbContext db) =>
 app.MapPost("/auth/register", async (ToDoDbContext db, UserDto userDto, ILogger<Program> logger) =>
 {
     logger.LogInformation($"Register attempt: {userDto.UserName}");
-    
+
     if (string.IsNullOrWhiteSpace(userDto.UserName) || string.IsNullOrWhiteSpace(userDto.Password))
     {
         logger.LogWarning("Username or password empty");
