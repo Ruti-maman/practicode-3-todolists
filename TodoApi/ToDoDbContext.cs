@@ -21,7 +21,16 @@ public partial class ToDoDbContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("name=bjzomdfjptbsenzmyyck", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.44-mysql"));
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            var connString = Environment.GetEnvironmentVariable("ToDoDB");
+            if (!string.IsNullOrEmpty(connString))
+            {
+                optionsBuilder.UseMySql(connString, ServerVersion.AutoDetect(connString));
+            }
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

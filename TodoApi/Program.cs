@@ -5,23 +5,34 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using TodoApi;
+using DotNetEnv;
+
+// טעינת קובץ .env
+Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
+
+// -------------------------
+// קריאת הגדרות מקובץ .env
+// -------------------------
+var connectionString = Environment.GetEnvironmentVariable("ToDoDB");
+var jwtKey = Environment.GetEnvironmentVariable("Key");
+var jwtIssuer = Environment.GetEnvironmentVariable("Issuer");
+var jwtAudience = Environment.GetEnvironmentVariable("Audience");
 
 // -------------------------
 // הוספת DbContext לשירותים
 // -------------------------
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySql(
-        builder.Configuration.GetConnectionString("ToDoDB"),
-        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoDB"))
+        connectionString,
+        ServerVersion.AutoDetect(connectionString)
     ));
 
 // -------------------------
 // הגדרת JWT Authentication
 // -------------------------
-var jwtSettings = builder.Configuration.GetSection("Jwt");
-var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]!);
+var key = Encoding.UTF8.GetBytes(jwtKey!);
 
 builder.Services
     .AddAuthentication(options =>
@@ -37,8 +48,8 @@ builder.Services
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = jwtSettings["Issuer"],
-            ValidAudience = jwtSettings["Audience"],
+            ValidIssuer = jwtIssuer,
+            ValidAudience = jwtAudience,
             IssuerSigningKey = new SymmetricSecurityKey(key)
         };
     });
@@ -85,8 +96,6 @@ app.UseSwaggerUI();
 // הפעלת CORS
 // -------------------------
 app.UseCors("AllowAllPolicy");
-
-
 
 
 // -------------------------
@@ -194,8 +203,7 @@ app.MapPost("/auth/login", async (ToDoDbContext db, UserDto loginDto) =>
         return Results.Unauthorized();
     }
 
-    var jwtSettingsLocal = app.Configuration.GetSection("Jwt");
-    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettingsLocal["Key"]!));
+    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("Key")!));
     var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
     var claims = new[]
@@ -205,8 +213,8 @@ app.MapPost("/auth/login", async (ToDoDbContext db, UserDto loginDto) =>
     };
 
     var token = new JwtSecurityToken(
-        issuer: jwtSettingsLocal["Issuer"],
-        audience: jwtSettingsLocal["Audience"],
+        issuer: Environment.GetEnvironmentVariable("Issuer"),
+        audience: Environment.GetEnvironmentVariable("Audience"),
         claims: claims,
         expires: DateTime.UtcNow.AddHours(1),
         signingCredentials: credentials
