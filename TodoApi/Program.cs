@@ -84,7 +84,7 @@ app.UseSwaggerUI();
 // -------------------------
 // הפעלת CORS
 // -------------------------
-app.UseCors("AllowAll");
+app.UseCors("AllowAllPolicy");
 
 
 
