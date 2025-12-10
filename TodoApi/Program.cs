@@ -93,6 +93,15 @@ builder.Services.AddCors(options =>
 builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 
+// Create database tables immediately
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ToDoDbContext>();
+    Console.WriteLine("Creating database tables...");
+    db.Database.EnsureCreated();
+    Console.WriteLine("Database tables ready!");
+}
+
 // ===========================
 // Exception Handler Middleware
 // ===========================
