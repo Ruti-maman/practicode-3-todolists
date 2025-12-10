@@ -104,12 +104,21 @@ app.UseExceptionHandler(errorApp =>
 {
     errorApp.Run(async context =>
     {
+        var exceptionHandlerPathFeature = context.Features.Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature>();
+        var exception = exceptionHandlerPathFeature?.Error;
+
+        Console.WriteLine($"❌ EXCEPTION: {exception?.GetType().Name}");
+        Console.WriteLine($"❌ Message: {exception?.Message}");
+        Console.WriteLine($"❌ StackTrace: {exception?.StackTrace}");
+
         context.Response.StatusCode = 500;
         context.Response.ContentType = "application/json";
         context.Response.Headers.Append("Access-Control-Allow-Origin", "*");
         context.Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         context.Response.Headers.Append("Access-Control-Allow-Headers", "*");
-        await context.Response.WriteAsync("{\"error\": \"Internal Server Error\"}");
+
+        var error = new { error = exception?.Message ?? "Internal Server Error", type = exception?.GetType().Name };
+        await context.Response.WriteAsJsonAsync(error);
     });
 });
 
