@@ -214,7 +214,7 @@ app.MapPost("/auth/login", async (ToDoDbContext db, UserDto loginDto) =>
         return Results.Unauthorized();
     }
 
-    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("Key")!));
+    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey!));
     var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
     var claims = new[]
@@ -224,8 +224,8 @@ app.MapPost("/auth/login", async (ToDoDbContext db, UserDto loginDto) =>
     };
 
     var token = new JwtSecurityToken(
-        issuer: Environment.GetEnvironmentVariable("Issuer"),
-        audience: Environment.GetEnvironmentVariable("Audience"),
+        issuer: jwtIssuer,
+        audience: jwtAudience,
         claims: claims,
         expires: DateTime.UtcNow.AddHours(1),
         signingCredentials: credentials
