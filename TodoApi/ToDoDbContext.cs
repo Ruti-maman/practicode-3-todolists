@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
-using DotNetEnv;
 
 namespace TodoApi;
 
@@ -28,9 +27,6 @@ public partial class ToDoDbContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-                if (File.Exists(".env"))
-                    Env.Load();
-
             var connString = Environment.GetEnvironmentVariable("ToDoDB");
             if (!string.IsNullOrEmpty(connString))
             {

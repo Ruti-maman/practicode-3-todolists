@@ -177,32 +177,40 @@ app.MapDelete("/tasks/{id}", async (int id, ToDoDbContext db) =>
 
 app.MapPost("/auth/register", async (ToDoDbContext db, UserDto userDto, ILogger<Program> logger) =>
 {
-    logger.LogInformation($"Register attempt: {userDto.UserName}");
-
-    if (string.IsNullOrWhiteSpace(userDto.UserName) || string.IsNullOrWhiteSpace(userDto.Password))
+    try
     {
-        logger.LogWarning("Username or password empty");
-        return Results.BadRequest("Username and password are required");
+        logger.LogInformation($"Register attempt: {userDto.UserName}");
+
+        if (string.IsNullOrWhiteSpace(userDto.UserName) || string.IsNullOrWhiteSpace(userDto.Password))
+        {
+            logger.LogWarning("Username or password empty");
+            return Results.BadRequest("Username and password are required");
+        }
+
+        var exists = await db.Users.AnyAsync(u => u.UserName == userDto.UserName);
+        if (exists)
+        {
+            logger.LogWarning($"User already exists: {userDto.UserName}");
+            return Results.BadRequest("Username already exists");
+        }
+
+        var user = new User
+        {
+            UserName = userDto.UserName,
+            PasswordHash = userDto.Password // לצורך הפשטות בלבד
+        };
+
+        db.Users.Add(user);
+        await db.SaveChangesAsync();
+
+        logger.LogInformation($"User created: {userDto.UserName}");
+        return Results.Ok("User created");
     }
-
-    var exists = await db.Users.AnyAsync(u => u.UserName == userDto.UserName);
-    if (exists)
+    catch (Exception ex)
     {
-        logger.LogWarning($"User already exists: {userDto.UserName}");
-        return Results.BadRequest("Username already exists");
+        logger.LogError($"Register error: {ex.Message}");
+        return Results.StatusCode(500);
     }
-
-    var user = new User
-    {
-        UserName = userDto.UserName,
-        PasswordHash = userDto.Password // לצורך הפשטות בלבד
-    };
-
-    db.Users.Add(user);
-    await db.SaveChangesAsync();
-
-    logger.LogInformation($"User created: {userDto.UserName}");
-    return Results.Ok("User created");
 });
 
 app.MapPost("/auth/login", async (ToDoDbContext db, UserDto loginDto) =>
