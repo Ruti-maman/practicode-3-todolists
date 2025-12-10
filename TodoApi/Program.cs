@@ -97,6 +97,22 @@ builder.Services.AddCors(options =>
 builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 
+// ===========================
+// Exception Handler Middleware
+// ===========================
+app.UseExceptionHandler(errorApp =>
+{
+    errorApp.Run(async context =>
+    {
+        context.Response.StatusCode = 500;
+        context.Response.ContentType = "application/json";
+        context.Response.Headers.Append("Access-Control-Allow-Origin", "*");
+        context.Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        context.Response.Headers.Append("Access-Control-Allow-Headers", "*");
+        await context.Response.WriteAsync("{\"error\": \"Internal Server Error\"}");
+    });
+});
+
 // -------------------------
 // הפעלת Swagger
 // -------------------------
