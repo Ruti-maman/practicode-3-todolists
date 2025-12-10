@@ -16,14 +16,13 @@ var builder = WebApplication.CreateBuilder(args);
 // -------------------------
 // קריאת הגדרות מקובץ .env
 // -------------------------
-var connectionString = Environment.GetEnvironmentVariable("ToDoDB");
+// SQLite - no connection string needed
 var jwtKey = Environment.GetEnvironmentVariable("Key");
 var jwtIssuer = Environment.GetEnvironmentVariable("Issuer");
 var jwtAudience = Environment.GetEnvironmentVariable("Audience");
 
 // בדיקה שהמשתנים לא ריקים
-if (string.IsNullOrEmpty(connectionString))
-    throw new InvalidOperationException("ToDoDB environment variable is not set!");
+
 if (string.IsNullOrEmpty(jwtKey))
     throw new InvalidOperationException("Key environment variable is not set!");
 if (string.IsNullOrEmpty(jwtIssuer))
@@ -35,10 +34,7 @@ if (string.IsNullOrEmpty(jwtAudience))
 // הוספת DbContext לשירותים
 // -------------------------
 builder.Services.AddDbContext<ToDoDbContext>(options =>
-    options.UseMySql(
-        connectionString,
-        ServerVersion.AutoDetect(connectionString)
-    ));
+    options.UseSqlite("Data Source=todo.db"));
 
 // -------------------------
 // הגדרת JWT Authentication
@@ -273,6 +269,7 @@ app.MapPost("/auth/login", async (ToDoDbContext db, UserDto loginDto) =>
 // הפעלה
 // -------------------------
 Console.WriteLine("Starting application...");
-Console.WriteLine($"Connection string: {(string.IsNullOrEmpty(connectionString) ? "NOT SET" : "SET")}");
+Console.WriteLine("Using SQLite database");
 
 app.Run();
+
