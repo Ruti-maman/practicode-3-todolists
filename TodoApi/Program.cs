@@ -263,26 +263,7 @@ app.MapPost("/auth/login", async (ToDoDbContext db, UserDto loginDto) =>
 // -------------------------
 // הפעלה
 // -------------------------
-// יצירת טבלאות אם לא קיימות
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<ToDoDbContext>();
-    try
-    {
-        Console.WriteLine("Attempting to connect to database...");
-        db.Database.EnsureCreated();
-        Console.WriteLine("✅ Database connected successfully!");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"❌ Database connection error: {ex.GetType().Name}");
-        Console.WriteLine($"❌ Message: {ex.Message}");
-        if (ex.InnerException != null)
-        {
-            Console.WriteLine($"❌ Inner exception: {ex.InnerException.Message}");
-        }
-        // Don't exit, let the app continue
-    }
-}
+Console.WriteLine("Starting application...");
+Console.WriteLine($"Connection string: {(string.IsNullOrEmpty(connectionString) ? "NOT SET" : "SET")}");
 
 app.Run();
