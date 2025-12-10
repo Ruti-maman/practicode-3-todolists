@@ -263,4 +263,18 @@ app.MapPost("/auth/login", async (ToDoDbContext db, UserDto loginDto) =>
 // -------------------------
 // הפעלה
 // -------------------------
+// יצירת טבלאות אם לא קיימות
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ToDoDbContext>();
+    try
+    {
+        db.Database.EnsureCreated();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Database creation error: {ex.Message}");
+    }
+}
+
 app.Run();
