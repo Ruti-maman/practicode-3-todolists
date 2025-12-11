@@ -1,403 +1,173 @@
-/* ===== NOA CAKES Inspired Pastel Theme ===== */
-body {
-    font-family: 'Heebo', 'Poppins', 'Alef', Arial, sans-serif;
-    background: linear-gradient(180deg, #fbe3e8 0%, #f8f6f0 100%);
-    min-height: 100vh;
-    margin: 0;
-    color: #3d3d3d;
+/* Clean white page with soft pink + turquoise accents */
+
+:root{
+  --page-bg: #ffffff;
+  --card: #ffffff;
+  --pink: #f7a8b0;
+  --turq: #71d0c7;
+  --muted: #6f7680;
+  --border: #f3d9dd;
+  --shadow: 0 8px 30px rgba(60,72,88,0.06);
 }
 
-.todoapp,
-.login-container {
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 4px 32px 0 rgba(250, 180, 190, 0.10), 0 1.5px 6px 0 rgba(255, 200, 200, 0.10);
-    padding: 36px 32px 28px 32px;
-    margin: 60px auto 40px auto;
-    max-width: 420px;
-    border: 1.5px solid #f8cfd5;
+/* Reset */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Heebo','Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background:var(--page-bg);
+  color:#23303a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-.todoapp h1,
-.login-container h2 {
-    color: #e88fa7;
-    font-family: 'Heebo', 'Poppins', 'Alef', Arial, sans-serif;
-    font-size: 2.3rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 28px;
-    text-align: center;
-    text-shadow: 0 2px 8px #fbe3e880;
+/* Main containers */
+.todoapp.noa, .login-container{
+  background:var(--card);
+  max-width:640px;
+  margin:56px auto;
+  padding:36px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
 }
 
-.header .new-todo,
-.login-container input[type="text"],
-/* public/index.css
-     Clean NOA-inspired pastel theme for Todo app + Login
-     This file replaces legacy styles so only the final, clean theme remains.
-*/
+.todoapp.noa h1{margin:0 0 18px 0;font-size:2.25rem;text-align:center;color:var(--pink);letter-spacing:1px}
+.login-container h2{margin:0 0 18px 0;font-size:1.8rem;text-align:center;color:var(--pink)}
 
-:root {
-    --bg-1: #fdf6f8;
-    --bg-2: #fbf1f4;
-    --card: #ffffff;
-    --accent: #e88fa7;
-    /* pastel rose */
-    --accent-2: #6c63ff;
-    /* soft purple */
-    --muted: #7b8794;
-    --border: #f3d9df;
-    --shadow: 0 8px 30px rgba(60, 72, 88, 0.06);
+/* Inputs */
+.header .new-todo, .login-container input[type="text"], .login-container input[type="password"]{
+  width:100%;padding:14px 16px;font-size:1.05rem;border-radius:12px;border:1px solid var(--border);background:#fff;margin-bottom:14px;outline:none;transition:box-shadow .15s,border-color .15s
 }
-
-/* Reset & base */
-* {
-    box-sizing: border-box
-}
-
-html,
-body {
-    height: 100%
-}
-
-body {
-    margin: 0;
-    font-family: 'Heebo', 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
-    color: #22303b;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Container */
-.todoapp.noa,
-.login-container {
-    background: var(--card);
-    max-width: 560px;
-    margin: 56px auto;
-    padding: 36px 32px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-}
-
-/* Titles */
-.todoapp.noa h1 {
-    margin: 0 0 18px 0;
-    font-size: 2.25rem;
-    text-align: center;
-    color: var(--accent-2);
-    letter-spacing: 1px
-}
-
-.login-container h2 {
-    margin: 0 0 18px 0;
-    font-size: 1.9rem;
-    text-align: center;
-    color: var(--accent-2)
-}
-
-/* Input */
-.header .new-todo,
-.login-container input[type="text"],
-.login-container input[type="password"] {
-    width: 100%;
-    padding: 14px 16px;
-    font-size: 1.05rem;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: #fff7f9;
-    margin-bottom: 14px;
-    outline: none;
-    transition: box-shadow .15s, border-color .15s
-}
-
-.header .new-todo:focus,
-.login-container input:focus {
-    box-shadow: 0 6px 18px rgba(108, 99, 255, 0.06);
-    border-color: var(--accent-2)
-}
+.header .new-todo:focus, .login-container input:focus{box-shadow:0 6px 18px rgba(113,208,199,0.08);border-color:var(--turq)}
 
 /* List */
-.todo-list {
-    list-style: none;
-    padding: 0;
-    margin: 6px 0 0 0
-}
+.todo-list{list-style:none;padding:0;margin:6px 0 0 0}
+.todo-list li{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;margin-bottom:12px;background:#fff;border:1px solid #f6f6f8}
+.todo-list li label{flex:1;margin:0;font-size:1.05rem;color:#26323a}
+.todo-list li.completed label{color:var(--muted);text-decoration:line-through}
 
-.todo-list li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    background: #fffafc;
-    border: 1px solid #fbebef
-}
+.todo-list li .toggle{width:20px;height:20px;accent-color:var(--turq)}
 
-.todo-list li label {
-    flex: 1;
-    margin: 0;
-    font-size: 1.05rem;
-    color: #26323a
-}
-
-.todo-list li.completed label {
-    color: var(--muted);
-    text-decoration: line-through
-}
-
-/* Controls */
-.todo-list li .toggle {
-    width: 20px;
-    height: 20px;
-    accent-color: var(--accent)
-}
-
-.todo-list li .destroy {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 0;
-    background: #fdeff3;
-    color: var(--accent);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background .12s, transform .12s
-}
-
-.todo-list li .destroy:hover {
-    background: var(--accent);
-    color: #fff;
-    transform: translateY(-2px)
-}
+.todo-list li .destroy{width:34px;height:34px;border-radius:50%;border:0;background:#fff4f6;color:var(--pink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .12s,transform .12s}
+.todo-list li .destroy:hover{background:var(--turq);color:#fff;transform:translateY(-2px)}
 
 /* Buttons */
-.logout-btn {
-    position: fixed;
-    top: 18px;
-    right: 18px;
-    background: var(--accent);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 16px;
-    border: 0;
-    box-shadow: 0 10px 24px rgba(232, 143, 167, 0.12);
-    cursor: pointer;
-    font-weight: 600
-}
+.logout-btn{position:fixed;top:18px;right:18px;background:var(--pink);color:#fff;padding:10px 20px;border-radius:16px;border:0;box-shadow:0 10px 24px rgba(247,168,176,0.12);cursor:pointer;font-weight:600}
+.logout-btn:hover{background:var(--turq);color:#fff}
 
-.logout-btn:hover {
-    background: #c96b8a
-}
+.login-container button[type="submit"]{width:100%;padding:12px;border-radius:10px;border:0;background:var(--pink);color:#fff;font-weight:600;cursor:pointer}
+.login-container button[type="submit"]:hover{background:var(--turq)}
 
-.login-container button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: 0;
-    background: var(--accent);
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer
-}
-
-.login-container button[type="submit"]:hover {
-    background: #c96b8a
-}
-
-.login-container .login-toggle {
-    background: none;
-    border: 0;
-    color: var(--accent);
-    cursor: pointer;
-    text-decoration: underline
-}
+.login-container .login-toggle{background:none;border:0;color:var(--pink);cursor:pointer;text-decoration:underline}
+.login-container .login-error{color:#d32f2f;margin-top:8px;font-size:1rem;text-align:center}
 
 /* Utilities */
-.todo-count {
-    font-weight: 600;
-    color: var(--muted)
-}
-
-.clear-completed {
-    background: none;
-    border: 0;
-    color: var(--muted);
-    cursor: pointer
-}
-
-.hidden {
-    display: none
-}
+.todo-count{font-weight:600;color:var(--muted)}
+.clear-completed{background:none;border:0;color:var(--muted);cursor:pointer}
+.hidden{display:none}
 
 /* Responsive */
-@media (max-width:640px) {
-
-    .todoapp.noa,
-    .login-container {
-        margin: 28px 16px;
-        padding: 20px
-    }
-
-    .todoapp.noa h1 {
-        font-size: 1.9rem
-    }
+@media (max-width:640px){
+  .todoapp.noa,.login-container{margin:28px 16px;padding:20px}
+  .todoapp.noa h1{font-size:1.9rem}
 }
 
-/* End */
-width: 100%;
-padding: 12px;
-font-size: 1.08rem;
-background: #e88fa7;
-color: #fff;
-border: none;
-border-radius: 12px;
-cursor: pointer;
-font-weight: 500;
-margin-bottom: 10px;
-transition: background 0.2s,
-color 0.2s;
-box-shadow: 0 1px 4px 0 #f8cfd530;
+/* Strong overrides to ensure the new theme wins against legacy selectors */
+.todoapp.noa, .todoapp.noa * {box-sizing:border-box}
+.todoapp.noa{background:var(--card) !important;border-radius:18px !important;padding:36px !important;margin:56px auto !important;max-width:640px !important;border:1px solid var(--border) !important;box-shadow:var(--shadow) !important}
+.todoapp.noa h1{color:var(--pink) !important}
+.todoapp.noa .header .new-todo{background:#fff !important;border:1px solid var(--border) !important}
+.todoapp.noa .todo-list li{background:#fff !important;border-radius:12px !important}
+.todoapp.noa .todo-list li .destroy{background:#fff4f6 !important;color:var(--pink) !important}
+.todoapp.noa .logout-btn{background:var(--pink) !important}
+
+/* End of file */
+/* Minimal clean stylesheet: white page with soft pink + turquoise accents */
+
+:root{
+    --page-bg: #ffffff;
+    --card: #ffffff;
+    --pink: #f7a8b0;
+    --turq: #71d0c7;
+    --muted: #6f7680;
+    --border: #f3d9dd;
+    --shadow: 0 8px 30px rgba(60,72,88,0.06);
 }
 
-.login-container button[type="submit"]:hover {
-    background: #c96b8a;
-    color: #fff;
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: 'Heebo','Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    background:var(--page-bg);
+    color:#23303a;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
 }
 
-.login-container .login-toggle {
-    background: none;
-    border: none;
-    color: #e88fa7;
-    cursor: pointer;
-    text-decoration: underline;
-    font-size: 1rem;
-    margin-top: 10px;
-    transition: color 0.2s;
+.todoapp.noa, .login-container{
+    background:var(--card);
+    max-width:640px;
+    margin:56px auto;
+    padding:36px;
+    border-radius:18px;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
 }
 
-.login-container .login-toggle:hover {
-    color: #c96b8a;
+.todoapp.noa h1{margin:0 0 18px 0;font-size:2.25rem;text-align:center;color:var(--pink);letter-spacing:1px}
+.login-container h2{margin:0 0 18px 0;font-size:1.8rem;text-align:center;color:var(--pink)}
+
+.header .new-todo, .login-container input[type="text"], .login-container input[type="password"]{
+    width:100%;padding:14px 16px;font-size:1.05rem;border-radius:12px;border:1px solid var(--border);background:#fff;margin-bottom:14px;outline:none;transition:box-shadow .15s,border-color .15s
+}
+.header .new-todo:focus, .login-container input:focus{box-shadow:0 6px 18px rgba(113,208,199,0.08);border-color:var(--turq)}
+
+.todo-list{list-style:none;padding:0;margin:6px 0 0 0}
+.todo-list li{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;margin-bottom:12px;background:#fff;border:1px solid #f6f6f8}
+.todo-list li label{flex:1;margin:0;font-size:1.05rem;color:#26323a}
+.todo-list li.completed label{color:var(--muted);text-decoration:line-through}
+
+.todo-list li .toggle{width:20px;height:20px;accent-color:var(--turq)}
+
+.todo-list li .destroy{width:34px;height:34px;border-radius:50%;border:0;background:#fff4f6;color:var(--pink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .12s,transform .12s}
+.todo-list li .destroy:hover{background:var(--turq);color:#fff;transform:translateY(-2px)}
+
+.logout-btn{position:fixed;top:18px;right:18px;background:var(--pink);color:#fff;padding:10px 20px;border-radius:16px;border:0;box-shadow:0 10px 24px rgba(247,168,176,0.12);cursor:pointer;font-weight:600}
+.logout-btn:hover{background:var(--turq);color:#fff}
+
+.login-container button[type="submit"]{width:100%;padding:12px;border-radius:10px;border:0;background:var(--pink);color:#fff;font-weight:600;cursor:pointer}
+.login-container button[type="submit"]:hover{background:var(--turq)}
+
+.login-container .login-toggle{background:none;border:0;color:var(--pink);cursor:pointer;text-decoration:underline}
+.login-container .login-error{color:#d32f2f;margin-top:8px;font-size:1rem;text-align:center}
+
+.todo-count{font-weight:600;color:var(--muted)}
+.clear-completed{background:none;border:0;color:var(--muted);cursor:pointer}
+.hidden{display:none}
+
+@media (max-width:640px){
+    .todoapp.noa,.login-container{margin:28px 16px;padding:20px}
+    .todoapp.noa h1{font-size:1.9rem}
 }
 
-.login-container .login-error {
-    color: #d32f2f;
-    margin-top: 8px;
-    font-size: 1rem;
-    text-align: center;
-}
+.todoapp.noa, .todoapp.noa * {box-sizing:border-box}
+.todoapp.noa{background:var(--card) !important;border-radius:18px !important;padding:36px !important;margin:56px auto !important;max-width:640px !important;border:1px solid var(--border) !important;box-shadow:var(--shadow) !important}
+.todoapp.noa h1{color:var(--pink) !important}
+.todoapp.noa .header .new-todo{background:#fff !important;border:1px solid var(--border) !important}
+.todoapp.noa .todo-list li{background:#fff !important;border-radius:12px !important}
+.todoapp.noa .todo-list li .destroy{background:#fff4f6 !important;color:var(--pink) !important}
+.todoapp.noa .logout-btn{background:var(--pink) !important}
 
-/* ===== Strong overrides for NOA theme (ensures new style wins over legacy rules) ===== */
-.todoapp.noa,
-.todoapp.noa * {
-    box-sizing: border-box;
-}
+/* End of file */
+.todoapp.noa .header .new-todo{background:#fff !important;border:1px solid var(--border) !important}
+.todoapp.noa .todo-list li{background:#fff !important;border-radius:12px !important}
+.todoapp.noa .todo-list li .destroy{background:#fff4f6 !important;color:var(--pink) !important}
+.todoapp.noa .logout-btn{background:var(--pink) !important}
 
-.todoapp.noa {
-    background: #fff !important;
-    border-radius: 20px !important;
-    padding: 36px 32px !important;
-    margin: 60px auto !important;
-    max-width: 520px !important;
-    border: 1px solid #f8cfd5 !important;
-    box-shadow: 0 8px 40px rgba(60, 72, 88, 0.06) !important;
-}
-
-.todoapp.noa h1 {
-    color: #e88fa7 !important;
-    font-size: 2.4rem !important;
-    text-align: center !important;
-}
-
-.todoapp.noa .header .new-todo {
-    background: #fff6f8 !important;
-    border: 1.5px solid #f8cfd5 !important;
-    border-radius: 12px !important;
-    padding: 14px 18px !important;
-}
-
-.todoapp.noa .todo-list li {
-    background: #fff6f8 !important;
-    border-radius: 12px !important;
-    margin-bottom: 12px !important;
-    padding: 6px 8px !important;
-}
-
-.todoapp.noa .todo-list li label {
-    color: #3d3d3d !important;
-}
-
-.todoapp.noa .todo-list li .destroy {
-    background: #fbe3e8 !important;
-    color: #e88fa7 !important;
-}
-
-.todoapp.noa .logout-btn {
-    background: #e88fa7 !important;
-    color: #fff !important;
-}
-
-.todoapp.noa .login-container {
-    margin: 40px auto !important;
-}
-
-/* small responsive tweak */
-@media (max-width: 480px) {
-
-    .todoapp.noa,
-    .login-container {
-        margin: 30px 16px !important;
-        padding: 20px !important;
-        max-width: calc(100% - 32px) !important;
-    }
-}
-
-/* --- Clean Pastel (Ice Cream) Theme --- */
-body {
-    font: 15px 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.5em;
-    background: linear-gradient(135deg, #f7fafc 0%, #e3e6f3 100%);
-    color: #3c4858;
-    min-height: 100vh;
-    margin: 0 auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
-}
-
-.todoapp {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px 0 rgba(60, 72, 88, 0.08), 0 1.5px 6px 0 rgba(227, 230, 243, 0.10);
-    padding: 32px 28px 24px 28px;
-    margin-top: 80px;
-    margin-bottom: 40px;
-    max-width: 500px;
-}
-
-.todoapp h1 {
-    color: #6c63ff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.7rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    margin-bottom: 24px;
-    text-align: center;
-    text-shadow: 0 2px 8px #e3e6f380;
-}
-
-.header .new-todo {
-    background: #f7fafc;
-    border: 1.5px solid #bfc7e0;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    padding: 13px 16px;
-    margin-bottom: 18px;
-    color: #3c4858;
+/* End of file */
     transition: border 0.2s, box-shadow 0.2s;
     box-shadow: 0 1px 4px 0 #bfc7e030;
 }
