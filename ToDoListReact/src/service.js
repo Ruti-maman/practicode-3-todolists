@@ -20,7 +20,7 @@ export const setAuthToken = (token) => {
 };
 
 // טעינת token מה-localStorage בעת הרצה ראשונית
-const savedToken = localStorage.getItem("token");\
+const savedToken = localStorage.getItem("token");
 
 if (savedToken) {
   axios.defaults.headers.common["Authorization"] = `Bearer ${savedToken}`;
