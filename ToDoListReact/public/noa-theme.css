@@ -20,15 +20,14 @@ body {
 }
 
 body {
-    /* very light canvas with ultra-subtle pastel spots */
+    /* very light canvas with an ultra-subtle linear wash: soft pink → very light gray */
     background:
-        radial-gradient(circle at 10% 15%, rgba(247, 168, 176, 0.035) 0%, transparent 10%),
-        radial-gradient(circle at 85% 80%, rgba(113, 208, 199, 0.03) 0%, transparent 12%),
+        linear-gradient(120deg, rgba(247, 168, 176, 0.02) 0%, rgba(250, 250, 251, 0.015) 60%, rgba(245, 245, 247, 0.01) 100%),
         var(--page-bg);
     color: #23303a;
     font-family: 'Heebo', 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .todoapp.noa,
