@@ -41,72 +41,35 @@ export default function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "400px",
-        margin: "50px auto",
-        padding: "20px",
-        border: "1px solid #ccc",
-        borderRadius: "8px",
-      }}
-    >
+    <div className="login-container">
       <h2>{isRegistering ? "הרשמה" : "התחברות"}</h2>
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: "15px" }}>
-          <input
-            style={{ width: "100%", padding: "10px", fontSize: "16px" }}
-            placeholder="שם משתמש"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            required
-          />
-        </div>
-        <div style={{ marginBottom: "15px" }}>
-          <input
-            style={{ width: "100%", padding: "10px", fontSize: "16px" }}
-            placeholder="סיסמה"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          style={{
-            width: "100%",
-            padding: "10px",
-            fontSize: "16px",
-            backgroundColor: "#4CAF50",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
-        >
-          {isRegistering ? "הירשם" : "התחבר"}
-        </button>
+      <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+        <input
+          type="text"
+          placeholder="שם משתמש"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="סיסמה"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">{isRegistering ? "הירשם" : "התחבר"}</button>
       </form>
-
-      {error && <div style={{ color: "red", marginTop: "10px" }}>{error}</div>}
-
-      <div style={{ marginTop: "15px", textAlign: "center" }}>
-        <button
-          onClick={() => {
-            setIsRegistering(!isRegistering);
-            setError("");
-          }}
-          style={{
-            background: "none",
-            border: "none",
-            color: "#2196F3",
-            cursor: "pointer",
-            textDecoration: "underline",
-          }}
-        >
-          {isRegistering ? "כבר יש לי חשבון - התחבר" : "אין לי חשבון - הירשם"}
-        </button>
-      </div>
+      {error && <div className="login-error">{error}</div>}
+      <button
+        className="login-toggle"
+        onClick={() => {
+          setIsRegistering(!isRegistering);
+          setError("");
+        }}
+      >
+        {isRegistering ? "כבר יש לי חשבון - התחבר" : "אין לי חשבון - הירשם"}
+      </button>
     </div>
   );
 }

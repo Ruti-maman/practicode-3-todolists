@@ -67,23 +67,10 @@ function App() {
       <header className="header">
         <h1>todos</h1>
         <button
+          className="logout-btn"
           onClick={() => {
             console.log("Button clicked!");
             handleLogout();
-          }}
-          style={{
-            position: "fixed",
-            top: "20px",
-            right: "20px",
-            padding: "10px 20px",
-            backgroundColor: "#f44336",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-            zIndex: 10000,
-            fontSize: "16px",
-            fontWeight: "bold",
           }}
         >
           התנתק
