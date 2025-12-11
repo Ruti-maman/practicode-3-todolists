@@ -1026,3 +1026,193 @@ html .clear-completed:active {
 .logout-btn:hover {
     background-color: #c62828;
 }
+
+/* --- Ice Cream Pastel Theme --- */
+body {
+    background: linear-gradient(135deg, #fceabb 0%, #f8b6d2 100%) !important;
+    min-height: 100vh;
+}
+
+.todoapp {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(248, 182, 210, 0.18), 0 1.5px 6px 0 rgba(252, 234, 187, 0.10);
+    padding: 32px 28px 24px 28px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.todoapp h1 {
+    color: #f8b6d2;
+    font-family: 'Poppins', cursive, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 8px #fceabb80;
+}
+
+.header .new-todo {
+    background: #fff6f9;
+    border: 1.5px solid #f8b6d2;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    color: #a67ca5;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px 0 #f8b6d230;
+}
+
+.header .new-todo:focus {
+    border: 2px solid #a67ca5;
+    background: #fff;
+}
+
+.todo-list li {
+    background: #fff6f9;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px 0 #f8b6d230;
+    border: 1px solid #fceabb;
+    transition: box-shadow 0.2s;
+}
+
+.todo-list li.completed label {
+    color: #bdbdbd;
+    text-decoration: line-through;
+}
+
+.todo-list li .view {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+}
+
+.todo-list li label {
+    flex: 1;
+    font-size: 1.1rem;
+    color: #a67ca5;
+    padding-left: 10px;
+}
+
+.todo-list li .toggle {
+    accent-color: #f8b6d2;
+    width: 22px;
+    height: 22px;
+}
+
+.todo-list li .destroy {
+    background: linear-gradient(135deg, #f8b6d2 0%, #fceabb 100%);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 1px 4px 0 #f8b6d230;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.todo-list li .destroy:hover {
+    background: linear-gradient(135deg, #fceabb 0%, #f8b6d2 100%);
+    box-shadow: 0 2px 8px 0 #f8b6d250;
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #f8b6d2 0%, #fceabb 100%);
+    color: #a67ca5;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px 0 #f8b6d230;
+    transition: background 0.2s, color 0.2s;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #fceabb 0%, #f8b6d2 100%);
+    color: #fff;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(248, 182, 210, 0.18), 0 1.5px 6px 0 rgba(252, 234, 187, 0.10);
+    padding: 32px 28px 24px 28px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    max-width: 400px;
+}
+
+.login-container h2 {
+    color: #a67ca5;
+    font-family: 'Poppins', cursive, sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 18px;
+    border: 1.5px solid #f8b6d2;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #fff6f9;
+    color: #a67ca5;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px 0 #f8b6d230;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    border: 2px solid #a67ca5;
+    background: #fff;
+}
+
+.login-container button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #f8b6d2 0%, #fceabb 100%);
+    color: #a67ca5;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 10px;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 1px 4px 0 #f8b6d230;
+}
+
+.login-container button[type="submit"]:hover {
+    background: linear-gradient(135deg, #fceabb 0%, #f8b6d2 100%);
+    color: #fff;
+}
+
+.login-container .login-toggle {
+    background: none;
+    border: none;
+    color: #a67ca5;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: color 0.2s;
+}
+
+.login-container .login-toggle:hover {
+    color: #f8b6d2;
+}
+
+.login-container .login-error {
+    color: #d32f2f;
+    margin-top: 8px;
+    font-size: 1rem;
+    text-align: center;
+}
