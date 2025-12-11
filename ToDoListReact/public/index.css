@@ -1,3 +1,162 @@
+/* ===== NOA CAKES Inspired Pastel Theme ===== */
+body {
+    font-family: 'Heebo', 'Poppins', 'Alef', Arial, sans-serif;
+    background: linear-gradient(180deg, #fbe3e8 0%, #f8f6f0 100%);
+    min-height: 100vh;
+    margin: 0;
+    color: #3d3d3d;
+}
+
+.todoapp, .login-container {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 4px 32px 0 rgba(250, 180, 190, 0.10), 0 1.5px 6px 0 rgba(255, 200, 200, 0.10);
+    padding: 36px 32px 28px 32px;
+    margin: 60px auto 40px auto;
+    max-width: 420px;
+    border: 1.5px solid #f8cfd5;
+}
+
+.todoapp h1, .login-container h2 {
+    color: #e88fa7;
+    font-family: 'Heebo', 'Poppins', 'Alef', Arial, sans-serif;
+    font-size: 2.3rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 28px;
+    text-align: center;
+    text-shadow: 0 2px 8px #fbe3e880;
+}
+
+.header .new-todo, .login-container input[type="text"], .login-container input[type="password"] {
+    background: #fff6f8;
+    border: 1.5px solid #f8cfd5;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    color: #3d3d3d;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px 0 #f8cfd530;
+    width: 100%;
+    outline: none;
+}
+.header .new-todo:focus, .login-container input[type="text"]:focus, .login-container input[type="password"]:focus {
+    border: 2px solid #e88fa7;
+    background: #fff;
+}
+
+.todo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.todo-list li {
+    background: #fff6f8;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px 0 #f8cfd530;
+    border: 1px solid #fbe3e8;
+    transition: box-shadow 0.2s;
+}
+.todo-list li.completed label {
+    color: #bdbdbd;
+    text-decoration: line-through;
+}
+.todo-list li .view {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+}
+.todo-list li label {
+    flex: 1;
+    font-size: 1.08rem;
+    color: #3d3d3d;
+    padding-left: 10px;
+}
+.todo-list li .toggle {
+    accent-color: #e88fa7;
+    width: 22px;
+    height: 22px;
+}
+.todo-list li .destroy {
+    background: #fbe3e8;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    color: #e88fa7;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 1px 4px 0 #f8cfd530;
+    transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.todo-list li .destroy:hover {
+    background: #e88fa7;
+    color: #fff;
+    box-shadow: 0 2px 8px 0 #f8cfd550;
+}
+
+.logout-btn {
+    background: #e88fa7;
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px 0 #f8cfd530;
+    transition: background 0.2s, color 0.2s;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 22px;
+    z-index: 10000;
+}
+.logout-btn:hover {
+    background: #c96b8a;
+    color: #fff;
+}
+
+.login-container button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.08rem;
+    background: #e88fa7;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 10px;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 1px 4px 0 #f8cfd530;
+}
+.login-container button[type="submit"]:hover {
+    background: #c96b8a;
+    color: #fff;
+}
+.login-container .login-toggle {
+    background: none;
+    border: none;
+    color: #e88fa7;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: color 0.2s;
+}
+.login-container .login-toggle:hover {
+    color: #c96b8a;
+}
+.login-container .login-error {
+    color: #d32f2f;
+    margin-top: 8px;
+    font-size: 1rem;
+    text-align: center;
+}
 /* --- Clean Pastel (Ice Cream) Theme --- */
 body {
     font: 15px 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
