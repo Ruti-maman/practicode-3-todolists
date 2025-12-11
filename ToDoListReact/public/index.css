@@ -1,4 +1,3 @@
-
 /* --- Clean Pastel (Ice Cream) Theme --- */
 body {
     font: 15px 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -15,12 +14,13 @@ body {
 .todoapp {
     background: #fff;
     border-radius: 18px;
-    box-shadow: 0 4px 24px 0 rgba(60, 72, 88, 0.08), 0 1.5px 6px 0 rgba(227,230,243,0.10);
+    box-shadow: 0 4px 24px 0 rgba(60, 72, 88, 0.08), 0 1.5px 6px 0 rgba(227, 230, 243, 0.10);
     padding: 32px 28px 24px 28px;
     margin-top: 80px;
     margin-bottom: 40px;
     max-width: 500px;
 }
+
 .todoapp h1 {
     color: #6c63ff;
     font-family: 'Poppins', sans-serif;
@@ -31,6 +31,7 @@ body {
     text-align: center;
     text-shadow: 0 2px 8px #e3e6f380;
 }
+
 .header .new-todo {
     background: #f7fafc;
     border: 1.5px solid #bfc7e0;
@@ -42,15 +43,18 @@ body {
     transition: border 0.2s, box-shadow 0.2s;
     box-shadow: 0 1px 4px 0 #bfc7e030;
 }
+
 .header .new-todo:focus {
     border: 2px solid #6c63ff;
     background: #fff;
 }
+
 .todo-list {
     margin: 0;
     padding: 0;
     list-style: none;
 }
+
 .todo-list li {
     background: #f7fafc;
     border-radius: 8px;
@@ -59,26 +63,31 @@ body {
     border: 1px solid #e3e6f3;
     transition: box-shadow 0.2s;
 }
+
 .todo-list li.completed label {
     color: #bfc7e0;
     text-decoration: line-through;
 }
+
 .todo-list li .view {
     display: flex;
     align-items: center;
     padding: 10px 12px;
 }
+
 .todo-list li label {
     flex: 1;
     font-size: 1.08rem;
     color: #3c4858;
     padding-left: 10px;
 }
+
 .todo-list li .toggle {
     accent-color: #6c63ff;
     width: 20px;
     height: 20px;
 }
+
 .todo-list li .destroy {
     background: #e3e6f3;
     border: none;
@@ -91,11 +100,13 @@ body {
     box-shadow: 0 1px 4px 0 #bfc7e030;
     transition: background 0.2s, box-shadow 0.2s;
 }
+
 .todo-list li .destroy:hover {
     background: #6c63ff;
     color: #fff;
     box-shadow: 0 2px 8px 0 #bfc7e050;
 }
+
 .logout-btn {
     background: #6c63ff;
     color: #fff;
@@ -106,19 +117,22 @@ body {
     box-shadow: 0 2px 8px 0 #bfc7e030;
     transition: background 0.2s, color 0.2s;
 }
+
 .logout-btn:hover {
     background: #3c4858;
     color: #fff;
 }
+
 .login-container {
     background: #fff;
     border-radius: 18px;
-    box-shadow: 0 4px 24px 0 rgba(60, 72, 88, 0.08), 0 1.5px 6px 0 rgba(227,230,243,0.10);
+    box-shadow: 0 4px 24px 0 rgba(60, 72, 88, 0.08), 0 1.5px 6px 0 rgba(227, 230, 243, 0.10);
     padding: 32px 28px 24px 28px;
     margin-top: 80px;
     margin-bottom: 40px;
     max-width: 400px;
 }
+
 .login-container h2 {
     color: #6c63ff;
     font-family: 'Poppins', sans-serif;
@@ -127,6 +141,7 @@ body {
     font-weight: 600;
     text-align: center;
 }
+
 .login-container input[type="text"],
 .login-container input[type="password"] {
     width: 100%;
@@ -140,11 +155,13 @@ body {
     transition: border 0.2s, box-shadow 0.2s;
     box-shadow: 0 1px 4px 0 #bfc7e030;
 }
+
 .login-container input[type="text"]:focus,
 .login-container input[type="password"]:focus {
     border: 2px solid #6c63ff;
     background: #fff;
 }
+
 .login-container button[type="submit"] {
     width: 100%;
     padding: 12px;
@@ -159,10 +176,12 @@ body {
     transition: background 0.2s, color 0.2s;
     box-shadow: 0 1px 4px 0 #bfc7e030;
 }
+
 .login-container button[type="submit"]:hover {
     background: #3c4858;
     color: #fff;
 }
+
 .login-container .login-toggle {
     background: none;
     border: none;
@@ -173,15 +192,18 @@ body {
     margin-top: 10px;
     transition: color 0.2s;
 }
+
 .login-container .login-toggle:hover {
     color: #3c4858;
 }
+
 .login-container .login-error {
     color: #d32f2f;
     margin-top: 8px;
     font-size: 1rem;
     text-align: center;
 }
+
 .edit {
     position: relative;
     margin: 0;
