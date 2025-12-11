@@ -1,38 +1,24 @@
 /* NOA theme override - loaded after index.css to ensure precedence */
 
-:root {
-    --page-bg: #ffffff;
-    --card: #ffffff;
-    --pink: #f7a8b0;
-    --turq: #71d0c7;
-    --muted: #6f7680;
-    --border: #f3d9dd;
-    --shadow: 0 8px 30px rgba(60, 72, 88, 0.06);
-}
-
-* {
-    box-sizing: border-box
-}
-
-html,
 body {
-    height: 100%
-}
-
-body {
-    /* very light canvas with an ultra-subtle linear wash: soft pink → very light gray */
+    /* stronger but still soft gradient: noticeable pale gray → pale pink */
     background:
         linear-gradient(120deg,
-            rgba(233, 233, 233, 0.16) 0%,
-            /* ~#e9e9e9 very light */
-            rgba(247, 168, 176, 0.06) 100%
-            /* ~#f7a8b0 very faint */
+            rgba(210, 210, 210, 0.7) 0%,
+            /* visible pale gray */
+            rgba(247, 168, 176, 0.12) 100%
+            /* soft pale pink */
         ),
         var(--page-bg);
     color: #23303a;
     font-family: 'Heebo', 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+    height: 100%
 }
 
 .todoapp.noa,
