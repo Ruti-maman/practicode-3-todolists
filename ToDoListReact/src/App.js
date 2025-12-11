@@ -63,7 +63,7 @@ function App() {
 
   console.log("Rendering TodoApp - isLoggedIn is true");
   return (
-    <section className="todoapp">
+    <section className="todoapp noa">
       <header className="header">
         <h1>My Tasks</h1>
         <button
