@@ -65,7 +65,7 @@ function App() {
   return (
     <section className="todoapp">
       <header className="header">
-        <h1>todos</h1>
+        <h1>My Tasks</h1>
         <button
           className="logout-btn"
           onClick={() => {
